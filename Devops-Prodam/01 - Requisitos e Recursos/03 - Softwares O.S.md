@@ -1,7 +1,9 @@
 ### Programas úteis
 
-Recomenda-se instalar os seguintes comandos no Ubuntu 24
+Recomenda-se instalar os seguintes comandos no Ubuntu 24.
 
 ```bash
-sudo apt update && sudo apt install vim iputils-ping htop git telnet net-tools bind9-dnsutils net-tools iptables -y & ln -s /sbin/iptables /usr/bin/iptables & ln -s /sbin/ip6tables /usr/bin/ip6tables
+sudo apt update && sudo apt install vim iputils-ping htop git \ 
+telnet net-tools bind9-dnsutils net-tools -y 
 ```
+> Para facilitar o login de todas as vms é recomendável incluir chavess ssh para acesso.

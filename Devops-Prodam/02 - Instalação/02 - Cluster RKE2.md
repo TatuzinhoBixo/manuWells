@@ -26,8 +26,6 @@ disable:
 tls-san:
   - <ip-cluster>
   - <dns-cluster>
-log-file: "/var/log/rke2/rke2.log"
-log-level: "info"
   ```
 > **IMPORTANTE**:
 > o proxy já deve ta configurado e o seu dns, salvo se for usar apenas um controlplane, assim o ip do cluster e o dns deve ser o mesmo da vm.
@@ -102,3 +100,36 @@ systemctl enable rke2-server
 > journalctl -f -eu rke2-server
 > ``` 
 
+### Instalação dos nós works
+Criar a pasta
+```bash
+mkdir -p /etc/rancher/rke2
+```
+Criar o arquivo
+```bash
+touch /etc/rancher/rke2/config.yaml
+```
+Incluir no arquivo de configuração
+```yaml
+write-kubeconfig-mode: "0600"
+cni: calico # Rede que é usada
+tls-san:
+server: https://<ip> # IP do cluster
+token: <token>
+```                                                   
+logging:                                                                    
+
+Verificar a versão do cluster, caso não tenha conhecimento, no terminal de algma vm que tenha o kubectl
+
+```bash
+kubectl get no
+```
+Após isso na vm onde que vai ser o work, executar o comando de instalação
+```bash
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao>" INSTALL_RKE2_TYPE="agent" sh -
+```
+Inciar o serviço
+```bash
+systemctl start rke2-agent
+systemctl enable rke2-agent
+```

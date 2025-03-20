@@ -58,6 +58,7 @@ kubectl get configmap -n kube-system
 ```
 
 ##### Controlplanes adicionais
+
  Para o cadastro de outros servidores é preciso buscar o token na vm do primeiro controlplane.
  ```bash
  cat /var/lib/rancher/rke2/server/node-token
@@ -90,7 +91,9 @@ Executar o comando
 ```bash
 curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao>" INSTALL_RKE2_TYPE="server" sh -
 ```
-Logo em seguida, iniciar o serviço
+> Antes de executar o inicio do serviço, inserir o ip do novo controlplane no proxy, para que ambos se comuniquem, caso isso não seja feito o controlplane não vai ser reconhecido no cluster
+
+Para iniciar o serviço se usa o mesmo comando usado no controlplane1
 ```bash
 systemctl start rke2-server
 systemctl enable rke2-server
@@ -113,7 +116,6 @@ Incluir no arquivo de configuração
 ```yaml
 write-kubeconfig-mode: "0600"
 cni: calico # Rede que é usada
-tls-san:
 server: https://<ip> # IP do cluster
 token: <token>
 ```                                                   
@@ -133,3 +135,7 @@ Inciar o serviço
 systemctl start rke2-agent
 systemctl enable rke2-agent
 ```
+> Para saber se está tudo bem, pode-se rodar esse comando abrindo em outro terminal
+> ```bash
+> journalctl -f -eu rke2-agent
+> ``` 

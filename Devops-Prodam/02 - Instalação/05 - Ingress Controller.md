@@ -7,13 +7,13 @@ Instalação do repositório e do ingress-controller
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
-helm install argocd-ingress ingress-nginx/ingress-nginx \
+helm install <nome-ingress> ingress-nginx/ingress-nginx \
   --namespace <namespace> \
   --set controller.ingressClassResource.name=<ingress-class> \
   --set controller.ingressClassResource.controllerValue="k8s.io/ingress-nginx" \
   --set controller.service.type=LoadBalancer \
   --set controller.service.loadBalancerIP="<ip>" \
-  --set controller.replicaCount=<numero de replicas> \
+  --set controller.replicaCount=<numero-replicas> \
   --set controller.extraArgs.watch-namespace=<namespace>
 ```
 Comandos para a verificação da instalação:
@@ -26,5 +26,3 @@ Caso se faça necessário a troca do ip, pode ser trocado editando o svc do ingr
 ```bash
 kubectl edit svc ingress-nginx-controller -n ingress-nginx
 ```
-
-#adicionar as variaveis

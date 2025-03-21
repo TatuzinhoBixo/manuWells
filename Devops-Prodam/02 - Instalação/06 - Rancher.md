@@ -10,10 +10,8 @@ kubectl create ns cattle-system
 
 helm upgrade --install rancher rancher-stable/rancher \
   --namespace cattle-system \
-  --set hostname=&lt;url-rancher&gt; \
-  --set replicas=&lt;numero de replicas&gt; \
+  --set hostname=&lt;url&gt; \
+  --set replicas=&lt;numero-replicas&gt; \
   --set bootstrapPassword=&lt;senha&gt; \
   --set ingress.tls.source=&lt;ssl-secret&gt; \
   --set ingress.ingressClassName=&lt;ingress-class&gt;
-
-#incluir as variáveis no aruiqvo das variaveis

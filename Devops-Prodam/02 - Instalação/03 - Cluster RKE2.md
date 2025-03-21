@@ -89,7 +89,7 @@ log-level: "info"
 
 Executar o comando
 ```bash
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao>" INSTALL_RKE2_TYPE="server" sh -
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao-kube>" INSTALL_RKE2_TYPE="server" sh -
 ```
 > Antes de executar o inicio do serviço, inserir o ip do novo controlplane no proxy, para que ambos se comuniquem, caso isso não seja feito o controlplane não vai ser reconhecido no cluster
 
@@ -128,7 +128,7 @@ kubectl get no
 ```
 Após isso na vm onde que vai ser o work, executar o comando de instalação
 ```bash
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao>" INSTALL_RKE2_TYPE="agent" sh -
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="<versao-kube>" INSTALL_RKE2_TYPE="agent" sh -
 ```
 Inciar o serviço
 ```bash

@@ -23,8 +23,11 @@ curl -s https://api.github.com/repos/rancher/rke2/releases | grep 'tag_name' | c
 &lt;git-secret&gt; - Nome da chave do secret do git, deve ser o hash usado para se fazer o login no git, senha comum não vai servir
 &lt;username&gt; - nome do usuário para login
 &lt;password&gt; - Senha né? 
-nfs-class
-domino
-ip-nfs
-caminho-nfs-remoto
-nome-nfs-storage
+&lt;nfs-class&gt; - Nome do nfs-class, para onde vai ser apontado os pv
+&lt;domino&gt; - Dominio de dns, pode ser para a internet ou rede local
+&lt;caminho-nfs-remoto&gt; - Caminho da pasta do nfs no servidor remoto
+&lt;nome-nfs-storage&gt; - Nome do componente storage-nfs
+&lt;ip&gt; - Endereço de rede
+&lt;nome-ingress&gt; - Nome do ingress, geralmente é escolhido como o nome do dominio ou apliacação e o sufixo ingress.
+&lt;service-name&gt; - Nome do compoentente service que vai ter integração com o ingress
+

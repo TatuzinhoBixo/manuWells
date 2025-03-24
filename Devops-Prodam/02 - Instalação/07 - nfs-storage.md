@@ -1,14 +1,14 @@
 ### Nfs-Storage
 NFS Storage é um tipo de armazenamento em rede que permite que vários pods no Kubernetes acessem os mesmos arquivos de forma compartilhada, como se fosse um "disco" comum montado em todos eles.
 
-```bash
-A instalação é feita via helm, adicionando primeiramente o repositório
 
+A instalação é feita via helm, adicionando primeiramente o repositório:
+```bash
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 helm repo update
 helm install <nome-nfs-storage> nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
   --namespace kube-system \
-  --set nfs.server=<ip-nfs> \
+  --set nfs.server=<ip> \
   --set nfs.path=<caminho-nfs-remoto> \
   --set storageClass.name=<nfs-class> \
   --set storageClass.defaultClass=true \

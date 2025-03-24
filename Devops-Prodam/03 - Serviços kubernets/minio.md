@@ -13,6 +13,8 @@ helm repo add minio https://charts.min.io/
 helm repo update
 ```
 
+
+
 Criar o arquivo minio-values.yaml onde se tem alguns parâmetros, esses que foram usados mas podem ser alterados de acordo com a necessidade
 
 ```yaml
@@ -48,8 +50,12 @@ env:
     value: "https://minio-console.<domino>"
 ```
 
+Criar o namespace e fazer a instalação
+```bash
 kubectl create ns minio
 helm install minio minio/minio -n minio -f minio-values.yaml
+```
+
 
 Após isso pode ser feito a configuração de alta disponiblidade. rodando os serguintes manifestos (são de exeplos e podem ser modificados)
 ```yaml

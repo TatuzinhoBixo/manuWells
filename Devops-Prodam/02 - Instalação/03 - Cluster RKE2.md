@@ -115,7 +115,7 @@ Incluir no arquivo de configuração
 ```yaml
 write-kubeconfig-mode: "0600"
 cni: calico # Rede que é usada
-server: https://<ip> # IP do cluster
+server: https://<ip>:9345 # IP do cluster
 token: <token>
 ```                                                   
 logging:                                                                    

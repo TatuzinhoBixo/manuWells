@@ -84,8 +84,6 @@ disable:
 tls-san:
   - <ip-cluster>
   - <dns-cluster>
-log-file: "/var/log/rke2/rke2.log"
-log-level: "info"
   ```
 
 Executar o comando

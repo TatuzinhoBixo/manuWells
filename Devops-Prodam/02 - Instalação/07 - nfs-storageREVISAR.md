@@ -1,5 +1,5 @@
 ### Nfs-Storage
-NFS Storage é um tipo de armazenamento em rede que permite que vários pods no Kubernetes acessem os mesmos arquivos de forma compartilhada, como se fosse um "disco" comum montado em todos eles.
+NFS Storage é um tipo de armazenamento em rede que permite que vários pods no Kubernetes acessem os mesmos arquivos de forma compartilhada, como se fosse um "disco" comum montado em todos eles. 
 A instalação é feita via helm, adicionando primeiramente o repositório
 ```bash
 

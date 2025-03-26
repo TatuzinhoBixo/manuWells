@@ -4,8 +4,9 @@ Consultar a versão compatível do kubernets compatível com o rancher, [Versõe
 Após consultar a versão compatível rodar esse comando para que ele der o nome da versão completa, isso será necessário para instalar o cluster. 
 ```bash
 curl -s https://api.github.com/repos/rancher/rke2/releases | grep 'tag_name' | cut -d\" -f4 | sort -V | grep -v 'rc'
-
 ```
+> Se for instalar com o Haproxy, favor se atentar aos nós ativos, caso tenha um nó registrado sem o serviço do rke2-server, vai dar problema na instalação ou vão surgir 2 cluster ao inves de nós em cluster
+
 ##### Instalação
 Criar a pasta
 ```bash
@@ -83,8 +84,6 @@ disable:
 tls-san:
   - <ip-cluster>
   - <dns-cluster>
-log-file: "/var/log/rke2/rke2.log"
-log-level: "info"
   ```
 
 Executar o comando
@@ -116,7 +115,7 @@ Incluir no arquivo de configuração
 ```yaml
 write-kubeconfig-mode: "0600"
 cni: calico # Rede que é usada
-server: https://<ip> # IP do cluster
+server: https://<ip>:9345 # IP do cluster
 token: <token>
 ```                                                   
 logging:                                                                    

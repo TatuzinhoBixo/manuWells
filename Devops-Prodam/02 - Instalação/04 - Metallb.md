@@ -34,3 +34,8 @@ kubectl apply -f metallb.yaml
 ```
 
 Caso precise incluir uma nova faixa de ips, é so acrescentar a nova faixa abaixo da configuração de ips já existente e depois reaplicar o manifesto
+
+Comando para mostrar o pools já criados assim como seus ips reservados
+```bash
+kubectl get ipaddresspool -A
+```
